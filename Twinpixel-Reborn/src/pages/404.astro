@@ -1,0 +1,40 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const path = Astro.url.pathname || "/";
+const isNL = path.startsWith("/nl/");
+const lang: "nl" | "en" = isNL ? "nl" : "en";
+
+const title = isNL ? "Pagina niet gevonden | TwinPixel" : "Page not found | TwinPixel";
+const desc = isNL
+  ? "De pagina die je zoekt bestaat niet (404)."
+  : "The page you’re looking for doesn’t exist (404).";
+
+const homeHref = isNL ? "/nl/" : "/en/";
+---
+
+<BaseLayout
+  title={title}
+  description={desc}
+  lang={lang}
+  canonical={path}
+  noindex={true}
+  alternates={isNL ? { nl: "/nl/" } : undefined}
+  xDefaultAlternate="/"
+>
+  <section class="section">
+    <h1 class="text-3xl md:text-4xl font-semibold mb-4">
+      {isNL ? "Pagina niet gevonden" : "Page not found"}
+    </h1>
+    <p class="prose text-slate-300">
+      {isNL
+        ? "De pagina die je zoekt bestaat niet of is verplaatst."
+        : "The page you’re looking for doesn’t exist or has moved."}
+    </p>
+    <div class="mt-6">
+      <a class="btn-primary" href={homeHref}>
+        {isNL ? "Terug naar home" : "Back to home"}
+      </a>
+    </div>
+  </section>
+</BaseLayout>

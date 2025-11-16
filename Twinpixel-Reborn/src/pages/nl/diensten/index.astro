@@ -1,0 +1,124 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+const site = Astro.site?.toString().replace(/\/$/, "") ?? "";
+
+const faqs = [
+  {
+    q: "Hoe snel kunnen jullie leveren?",
+    a: "Standaard leveren we binnen 2–4 weken. Rush in 5 dagen is mogelijk (+€100), afhankelijk van contentgereedheid.",
+  },
+  {
+    q: "Werken jullie met vaste prijzen?",
+    a: "Ja. We bieden pakketten met duidelijke deliverables. Voor maatwerk maken we een heldere offerte.",
+  },
+  {
+    q: "Regelen jullie ook hosting en onderhoud?",
+    a: "Ja. We bieden veilige hosting en periodieke updates. Zo blijft je site snel en stabiel.",
+  },
+  {
+    q: "Optimaliseren jullie voor Core Web Vitals?",
+    a: "Ja. We ontwerpen en bouwen gericht op LCP < 1.5s, CLS < 0.03 en TBT < 100ms.",
+  },
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": `${site}/nl/` },
+      { "@type": "ListItem", "position": 2, "name": "Diensten", "item": `${site}/nl/diensten/` }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Webdesign, SEO en onderhoud",
+    "provider": { "@type": "LocalBusiness", "name": "TwinPixel", "areaServed": "Wageningen" },
+    "url": `${site}/nl/diensten/`
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map((f) => ({
+      "@type": "Question",
+      "name": f.q,
+      "acceptedAnswer": { "@type": "Answer", "text": f.a }
+    }))
+  }
+];
+---
+
+<BaseLayout
+  title="Diensten | TwinPixel"
+  description="Webdesign, SEO-optimalisatie en hosting & onderhoud. Snel, minimalistisch en gericht op resultaat."
+  lang="nl"
+  canonical="/nl/diensten/"
+  alternates={{ nl: `${site}/nl/diensten/` }}
+  jsonLd={jsonLd}
+>
+  <section class="section">
+    <h1 class="text-3xl md:text-4xl font-semibold mb-6">Diensten</h1>
+    <p class="prose text-slate-300">
+      Wij helpen ZZP en MKB in Wageningen met snelle, professionele websites. Duidelijk, onderhoudbaar en zonder ruis.
+    </p>
+  </section>
+
+  <section class="section grid gap-6 lg:grid-cols-3">
+    <article class="rounded-lg border border-slate-800/60 p-6">
+      <div aria-hidden="true" class="mb-4 text-cyan-400">
+        <!-- inline SVG icon -->
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M4 5h16v12H5l-1 1z"/></svg>
+      </div>
+      <h2 class="text-xl font-semibold">Webdesign</h2>
+      <p class="text-slate-300 mt-2">
+        Moderne, minimalistische websites met focus op duidelijkheid en conversie. We werken mobile-first met royale witruimte en
+        respecteren toegankelijkheid en prestaties. LCP onder 1.5s is onze standaard.
+      </p>
+    </article>
+
+    <article class="rounded-lg border border-slate-800/60 p-6">
+      <div aria-hidden="true" class="mb-4 text-cyan-400">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M3 12h18M12 3v18"/></svg>
+      </div>
+      <h2 class="text-xl font-semibold">SEO-optimalisatie</h2>
+      <p class="text-slate-300 mt-2">
+        Technische SEO (sitemaps, robots, schema) en contentfundamenten (H1–H3, descriptions). Schone URL’s en interne links
+        zorgen dat je beter gevonden wordt en bezoekers sneller doorklikken.
+      </p>
+    </article>
+
+    <article class="rounded-lg border border-slate-800/60 p-6">
+      <div aria-hidden="true" class="mb-4 text-cyan-400">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M4 6h16v10H4zM8 18h8"/></svg>
+      </div>
+      <h2 class="text-xl font-semibold">Hosting & onderhoud</h2>
+      <p class="text-slate-300 mt-2">
+        Veilige hosting met periodieke updates en monitoring. Zo blijft je site snel en betrouwbaar, zonder verrassingen in de kosten.
+      </p>
+    </article>
+  </section>
+
+  <section class="section">
+    <div class="rounded-lg border border-slate-800/60 p-6">
+      <h2 class="text-2xl font-semibold">FAQ</h2>
+      <dl class="mt-4 divide-y divide-slate-800/60">
+        {faqs.map((f) => (
+          <div class="py-4">
+            <dt class="font-medium">{f.q}</dt>
+            <dd class="text-slate-300 mt-2">{f.a}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="flex flex-wrap gap-3">
+      <a href="/nl/prijzen/" class="btn-primary">Bekijk prijzen</a>
+      <a href="/nl/portfolio/" class="underline underline-offset-4 decoration-slate-600 hover:text-cyan-400">Bekijk cases</a>
+      <a href="/nl/contact/" class="underline underline-offset-4 decoration-slate-600 hover:text-cyan-400">Contact</a>
+    </div>
+  </section>
+</BaseLayout>

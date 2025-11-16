@@ -1,0 +1,9 @@
+/               /nl/             301!
+# Legacy HTML to new clean URLs
+/index.html           /nl/             301!
+/about.html           /nl/over/        301!
+/pricing.html         /nl/prijzen/     301!
+/portfolio.html       /nl/portfolio/   301!
+
+# Fallback: any other .html to NL home
+/*.html               /nl/             301!
