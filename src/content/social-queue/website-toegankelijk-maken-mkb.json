@@ -2,7 +2,7 @@
   "version": 1,
   "slug": "website-toegankelijk-maken-mkb",
   "title": "Website toegankelijk maken voor mkb: begin bij de belangrijkste taken",
-  "status": "waiting_for_publish",
+  "status": "sent_to_automation",
   "publishAt": null,
   "articleUrl": "https://twinpixel.nl/insights/website-toegankelijk-maken-mkb",
   "imageUrl": "/uploads/agent/website-toegankelijk-maken-mkb.png",
@@ -15,5 +15,6 @@
   },
   "visualBrief": "Vierkante, sobere redactionele foto van een neutrale werkplek. Close-up van handen die een laptop met een zakelijke, abstracte website bedienen via toetsenbord; daarnaast een klein notitieblok met eenvoudige checklistmarkeringen. Zacht daglicht, rustige grijs-blauwe en warme neutrale tinten, veel negatieve ruimte. Geen zichtbare tekst op scherm of papier, geen logo’s, geen herkenbare gezichten of personen.",
   "createdAt": "2026-09-07T07:01:34.131Z",
-  "createdBy": "TwinPixel content autopilot"
+  "createdBy": "TwinPixel content autopilot",
+  "dispatchedAt": "2026-09-07T07:15:19.843Z"
 }
